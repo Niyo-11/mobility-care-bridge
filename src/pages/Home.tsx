@@ -2,6 +2,9 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, CheckCircle, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import healthcareProfessional from '@/assets/healthcare-professional.jpg';
+import mobilityAidUser from '@/assets/mobility-aid-user.jpg';
+import hopeInnovation from '@/assets/hope-innovation.jpg';
 
 const Home = () => {
   return (
@@ -46,7 +49,7 @@ const Home = () => {
             <div className="relative">
               <div className="bg-white rounded-2xl shadow-2xl p-8 transform rotate-3 hover:rotate-1 transition-transform duration-300">
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop" 
+                  src={healthcareProfessional} 
                   alt="Healthcare professional helping patient with mobility aid"
                   className="w-full h-64 object-cover rounded-lg"
                 />
@@ -89,20 +92,73 @@ const Home = () => {
 
       {/* Mission Statement */}
       <section className="py-16 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
-            Our Mission is Simple
-          </h2>
-          <p className="text-xl text-slate-600 leading-relaxed mb-8">
-            We believe that mobility should never be a barrier to living a full life. Through our network 
-            of generous donors, skilled repair partners, and trusted NGOs, we ensure that quality mobility 
-            aids reach the people who need them most.
-          </p>
-          <Button asChild size="lg" variant="outline" className="border-slate-300">
-            <Link to="/impact">
-              See Our Impact <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
+                Our Mission is Simple
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed mb-8">
+                We believe that mobility should never be a barrier to living a full life. Through our network 
+                of generous donors, skilled repair partners, and trusted NGOs, we ensure that quality mobility 
+                aids reach the people who need them most.
+              </p>
+              <Button asChild size="lg" variant="outline" className="border-slate-300">
+                <Link to="/impact">
+                  See Our Impact <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+            
+            <div className="order-1 lg:order-2">
+              <div className="relative">
+                <img 
+                  src={mobilityAidUser} 
+                  alt="Person using mobility aid with independence"
+                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent rounded-2xl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Community Impact */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="relative">
+                <img 
+                  src={hopeInnovation} 
+                  alt="Innovation and hope in mobility aid solutions"
+                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent rounded-2xl"></div>
+              </div>
+            </div>
+            
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
+                Building Stronger Communities
+              </h2>
+              <p className="text-xl text-slate-600 leading-relaxed mb-6">
+                Every donation creates a ripple effect of positive change. When someone regains their mobility, 
+                they can participate more fully in their community, maintain their independence, and continue 
+                contributing to society.
+              </p>
+              <p className="text-lg text-slate-600 mb-8">
+                Our network of partners ensures that each mobility aid finds its way to someone who truly needs it, 
+                creating lasting impact that extends far beyond the initial donation.
+              </p>
+              <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Link to="/partners">
+                  Meet Our Partners <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

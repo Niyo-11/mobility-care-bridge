@@ -93,34 +93,17 @@ const Donate = () => {
 
       {/* What We Accept */}
       <section className="py-16 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-6">What We Accept</h2>
-              <ul className="space-y-3">
-                {acceptedItems.map((item, index) => (
-                  <li key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 flex-shrink-0" />
-                    <span className="text-slate-700">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="bg-blue-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-slate-800 mb-4 flex items-center">
-                <AlertCircle className="h-6 w-6 text-blue-600 mr-3" />
-                We Accept Items That Need Repair!
-              </h3>
-              <p className="text-slate-700 mb-4">
-                Don't worry if your mobility aid needs some work. Our network includes skilled repair 
-                shops that can restore items to excellent condition.
-              </p>
-              <p className="text-sm text-slate-600">
-                Common repairs we handle include: wheel replacements, brake adjustments, 
-                padding replacement, and mechanical tune-ups.
-              </p>
-            </div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-slate-800 mb-8">What We Accept</h2>
+          <div className="max-w-2xl mx-auto">
+            <ul className="grid md:grid-cols-2 gap-4">
+              {acceptedItems.map((item, index) => (
+                <li key={index} className="flex items-center space-x-3 text-left">
+                  <CheckCircle className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                  <span className="text-slate-700">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
