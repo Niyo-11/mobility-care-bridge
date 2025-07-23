@@ -1,7 +1,8 @@
 
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Heart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import careBridgeLogo from '../assets/care-bridge-logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,11 +25,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="bg-emerald-100 p-2 rounded-lg group-hover:bg-emerald-200 transition-colors">
-              <Heart className="h-6 w-6 text-emerald-600" />
-            </div>
-            <span className="text-xl font-bold text-slate-800">MobilityBridge</span>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src={careBridgeLogo} 
+              alt="Care Bridge" 
+              className="h-10 w-auto group-hover:opacity-90 transition-opacity"
+            />
           </Link>
 
           {/* Desktop Navigation */}

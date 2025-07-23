@@ -45,7 +45,7 @@ const About = () => {
       <section className="bg-gradient-to-br from-slate-50 to-blue-50 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            About MobilityBridge
+            About Care Bridge
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed">
             We're dedicated to ensuring that financial barriers never prevent someone from accessing 
@@ -70,7 +70,7 @@ const About = () => {
                 recovery, or they have items that need minor repairs but are otherwise perfectly functional.
               </p>
               <p className="font-semibold text-emerald-700">
-                MobilityBridge connects these two groups, creating a bridge between generosity and need.
+                Care Bridge connects these two groups, creating a bridge between generosity and need.
               </p>
             </div>
           </div>

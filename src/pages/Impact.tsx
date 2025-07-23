@@ -19,7 +19,7 @@ const Impact = () => {
   ];
 
   const testimonial = {
-    quote: "Receiving the wheelchair through MobilityBridge changed everything for me. I can now get to work independently and take my children to the park. This program gave me back my freedom.",
+    quote: "Receiving the wheelchair through Care Bridge changed everything for me. I can now get to work independently and take my children to the park. This program gave me back my freedom.",
     author: "Maria, Wheelchair Recipient",
     location: "Oakland, CA"
   };

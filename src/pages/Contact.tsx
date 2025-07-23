@@ -144,10 +144,10 @@ const Contact = () => {
                     <h3 className="font-semibold text-slate-800 mb-1">Email Us</h3>
                     <p className="text-slate-600 mb-2">For general inquiries and donation questions</p>
                     <a 
-                      href="mailto:hello@mobilitybridge.org" 
+                      href="mailto:hello@carebridge.org" 
                       className="text-blue-600 hover:text-blue-700 font-medium"
                     >
-                      hello@mobilitybridge.org
+                      hello@carebridge.org
                     </a>
                   </div>
                 </div>
