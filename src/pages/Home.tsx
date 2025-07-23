@@ -34,6 +34,12 @@ const Home = () => {
                     Learn More
                   </Link>
                 </Button>
+                
+                <Button asChild variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4">
+                  <Link to="/contact">
+                    Get in Touch
+                  </Link>
+                </Button>
               </div>
             </div>
             
