@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import careBridgeLogo from '../assets/care-bridge-logo.png';
+import careBridgeLogo from '../assets/CareBridgeLogo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
