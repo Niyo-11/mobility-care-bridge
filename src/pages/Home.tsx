@@ -2,9 +2,9 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, CheckCircle, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import healthcareProfessional from '@/assets/healthcare-professional.jpg';
-import mobilityAidUser from '@/assets/mobility-aid-user.jpg';
-import hopeInnovation from '@/assets/hope-innovation.jpg';
+import hopeInnovation from '@/assets/children.jpg';
+import mobilityAidUser from '@/assets/disabled_ppl.jpg';
+import healthcareProfessional from '@/assets/mobility_aids.jpg';
 
 const Home = () => {
   return (
