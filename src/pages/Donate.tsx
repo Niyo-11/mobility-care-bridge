@@ -54,8 +54,8 @@ const Donate = () => {
           
           <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4">
             <a 
-              href="https://forms.google.com/mobility-donation-form" 
-              target="_blank" 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc_JKBMoDPuyPEOtDFyxsZVe04N2U8SjAbrVMPmIUCu6I-wQg/viewform?usp=dialog" 
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center"
             >
@@ -121,8 +121,8 @@ const Donate = () => {
           
           <Button size="lg" variant="secondary" className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-4">
             <a 
-              href="https://forms.google.com/mobility-donation-form" 
-              target="_blank" 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc_JKBMoDPuyPEOtDFyxsZVe04N2U8SjAbrVMPmIUCu6I-wQg/viewform?usp=dialog" 
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center"
             >
