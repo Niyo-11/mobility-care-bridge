@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import careBridgeLogo from '../assets/CareBridgeLogo.png';
+import AuthButton from './AuthButton';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,9 +12,10 @@ const Navbar = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Donate', href: '/donate' },
-    { name: 'Partners', href: '/partners' },
+    { name: 'Marketplace', href: '/marketplace' },
     { name: 'Impact', href: '/impact' },
+    { name: 'Partners', href: '/partners' },
+    { name: 'Donate', href: '/donate' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -48,6 +50,9 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <div className="ml-4">
+              <AuthButton />
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -80,6 +85,9 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
+            <div className="px-3 py-2">
+              <AuthButton />
+            </div>
           </div>
         </div>
       )}

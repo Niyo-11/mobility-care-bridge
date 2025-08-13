@@ -39,6 +39,12 @@ const Home = () => {
                 </Button>
                 
                 <Button asChild variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4">
+                  <Link to="/marketplace">
+                    Shop Marketplace
+                  </Link>
+                </Button>
+                
+                <Button asChild variant="outline" size="lg" className="border-gray-600 text-gray-600 hover:bg-gray-50 px-8 py-4">
                   <Link to="/contact">
                     Get in Touch
                   </Link>

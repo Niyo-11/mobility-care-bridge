@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Marketplace from "./pages/Marketplace";
+import Auth from "./pages/Auth";
 import Donate from "./pages/Donate";
 import Partners from "./pages/Partners";
 import FAQ from "./pages/FAQ";
@@ -27,6 +29,8 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/auth" element={<Auth />} />
             <Route path="/donate" element={<Donate />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/faq" element={<FAQ />} />
