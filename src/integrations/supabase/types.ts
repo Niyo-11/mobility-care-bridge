@@ -14,7 +14,333 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      merchants: {
+        Row: {
+          business_address: string | null
+          business_city: string | null
+          business_country: string | null
+          business_description: string | null
+          business_email: string | null
+          business_name: string
+          business_phone: string | null
+          created_at: string
+          id: string
+          listing_fee_paid: boolean | null
+          logo_url: string | null
+          merchant_type: Database["public"]["Enums"]["merchant_type"]
+          status: Database["public"]["Enums"]["merchant_status"]
+          updated_at: string
+          user_id: string
+          website_url: string | null
+        }
+        Insert: {
+          business_address?: string | null
+          business_city?: string | null
+          business_country?: string | null
+          business_description?: string | null
+          business_email?: string | null
+          business_name: string
+          business_phone?: string | null
+          created_at?: string
+          id?: string
+          listing_fee_paid?: boolean | null
+          logo_url?: string | null
+          merchant_type?: Database["public"]["Enums"]["merchant_type"]
+          status?: Database["public"]["Enums"]["merchant_status"]
+          updated_at?: string
+          user_id: string
+          website_url?: string | null
+        }
+        Update: {
+          business_address?: string | null
+          business_city?: string | null
+          business_country?: string | null
+          business_description?: string | null
+          business_email?: string | null
+          business_name?: string
+          business_phone?: string | null
+          created_at?: string
+          id?: string
+          listing_fee_paid?: boolean | null
+          logo_url?: string | null
+          merchant_type?: Database["public"]["Enums"]["merchant_type"]
+          status?: Database["public"]["Enums"]["merchant_status"]
+          updated_at?: string
+          user_id?: string
+          website_url?: string | null
+        }
+        Relationships: []
+      }
+      order_items: {
+        Row: {
+          created_at: string
+          id: string
+          order_id: string
+          product_id: string
+          quantity: number
+          total_price: number
+          unit_price: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          order_id: string
+          product_id: string
+          quantity?: number
+          total_price: number
+          unit_price: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          order_id?: string
+          product_id?: string
+          quantity?: number
+          total_price?: number
+          unit_price?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          created_at: string
+          customer_email: string | null
+          customer_name: string | null
+          id: string
+          merchant_id: string
+          notes: string | null
+          shipping_address: Json | null
+          status: Database["public"]["Enums"]["order_status"]
+          stripe_payment_intent_id: string | null
+          stripe_session_id: string | null
+          total_amount: number
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          id?: string
+          merchant_id: string
+          notes?: string | null
+          shipping_address?: Json | null
+          status?: Database["public"]["Enums"]["order_status"]
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          total_amount: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string | null
+          id?: string
+          merchant_id?: string
+          notes?: string | null
+          shipping_address?: Json | null
+          status?: Database["public"]["Enums"]["order_status"]
+          stripe_payment_intent_id?: string | null
+          stripe_session_id?: string | null
+          total_amount?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_merchant_id_fkey"
+            columns: ["merchant_id"]
+            isOneToOne: false
+            referencedRelation: "merchants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_categories: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          parent_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          parent_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          parent_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_categories_parent_id_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "product_categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      products: {
+        Row: {
+          category_id: string | null
+          created_at: string
+          description: string | null
+          id: string
+          images: string[] | null
+          market_price_max: number | null
+          market_price_min: number | null
+          merchant_id: string
+          name: string
+          price: number
+          sku: string | null
+          specifications: Json | null
+          status: Database["public"]["Enums"]["product_status"]
+          stock_quantity: number | null
+          updated_at: string
+        }
+        Insert: {
+          category_id?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          images?: string[] | null
+          market_price_max?: number | null
+          market_price_min?: number | null
+          merchant_id: string
+          name: string
+          price: number
+          sku?: string | null
+          specifications?: Json | null
+          status?: Database["public"]["Enums"]["product_status"]
+          stock_quantity?: number | null
+          updated_at?: string
+        }
+        Update: {
+          category_id?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          images?: string[] | null
+          market_price_max?: number | null
+          market_price_min?: number | null
+          merchant_id?: string
+          name?: string
+          price?: number
+          sku?: string | null
+          specifications?: Json | null
+          status?: Database["public"]["Enums"]["product_status"]
+          stock_quantity?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "product_categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "products_merchant_id_fkey"
+            columns: ["merchant_id"]
+            isOneToOne: false
+            referencedRelation: "merchants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          address: string | null
+          city: string | null
+          country: string | null
+          created_at: string
+          first_name: string | null
+          id: string
+          last_name: string | null
+          phone: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          address?: string | null
+          city?: string | null
+          country?: string | null
+          created_at?: string
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          phone?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_favorites: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_favorites_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +349,16 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      merchant_status: "pending" | "approved" | "suspended"
+      merchant_type: "partner" | "vendor"
+      order_status:
+        | "pending"
+        | "paid"
+        | "processing"
+        | "shipped"
+        | "delivered"
+        | "cancelled"
+      product_status: "draft" | "active" | "inactive"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +485,18 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      merchant_status: ["pending", "approved", "suspended"],
+      merchant_type: ["partner", "vendor"],
+      order_status: [
+        "pending",
+        "paid",
+        "processing",
+        "shipped",
+        "delivered",
+        "cancelled",
+      ],
+      product_status: ["draft", "active", "inactive"],
+    },
   },
 } as const
