@@ -17,13 +17,13 @@ interface Product {
   market_price_max?: number;
   images: string[];
   stock_quantity: number;
-  merchant: {
+  merchant?: {
     business_name: string;
     merchant_type: 'partner' | 'vendor';
-  };
-  category: {
+  } | null;
+  category?: {
     name: string;
-  };
+  } | null;
 }
 
 interface Category {
@@ -158,7 +158,7 @@ const Marketplace = () => {
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     product.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.merchant.business_name.toLowerCase().includes(searchTerm.toLowerCase())
+    (product.merchant?.business_name?.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   const formatPrice = (price: number) => {
@@ -303,12 +303,18 @@ const Marketplace = () => {
                     </p>
                     
                     <div className="flex items-center gap-2 mb-3">
-                      <Badge variant={product.merchant.merchant_type === 'partner' ? 'default' : 'secondary'}>
-                        {product.merchant.merchant_type === 'partner' ? 'Partner' : 'Vendor'}
-                      </Badge>
-                      <span className="text-sm text-muted-foreground">
-                        by {product.merchant.business_name}
-                      </span>
+                      {product.merchant ? (
+                        <>
+                          <Badge variant={product.merchant.merchant_type === 'partner' ? 'default' : 'secondary'}>
+                            {product.merchant.merchant_type === 'partner' ? 'Partner' : 'Vendor'}
+                          </Badge>
+                          <span className="text-sm text-muted-foreground">
+                            by {product.merchant.business_name}
+                          </span>
+                        </>
+                      ) : (
+                        <Badge variant="outline">Demo Product</Badge>
+                      )}
                     </div>
 
                     <div className="space-y-1">
