@@ -213,7 +213,7 @@ export type Database = {
           images: string[] | null
           market_price_max: number | null
           market_price_min: number | null
-          merchant_id: string
+          merchant_id: string | null
           name: string
           price: number
           sku: string | null
@@ -230,7 +230,7 @@ export type Database = {
           images?: string[] | null
           market_price_max?: number | null
           market_price_min?: number | null
-          merchant_id: string
+          merchant_id?: string | null
           name: string
           price: number
           sku?: string | null
@@ -247,7 +247,7 @@ export type Database = {
           images?: string[] | null
           market_price_max?: number | null
           market_price_min?: number | null
-          merchant_id?: string
+          merchant_id?: string | null
           name?: string
           price?: number
           sku?: string | null
