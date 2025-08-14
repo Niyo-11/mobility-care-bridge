@@ -6,6 +6,8 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/hooks/useAuth';
+import { useCart } from '@/hooks/useCart';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Product {
@@ -41,6 +43,8 @@ const Marketplace = () => {
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+  const { user } = useAuth();
+  const { addToCart: cartAddToCart } = useCart();
 
   useEffect(() => {
     fetchProducts();
@@ -147,12 +151,8 @@ const Marketplace = () => {
     }
   };
 
-  const addToCart = (product: Product) => {
-    // For now, we'll just show a toast. In a real app, this would add to cart
-    toast({
-      title: "Added to cart",
-      description: `${product.name} has been added to your cart.`,
-    });
+  const addToCart = async (product: Product) => {
+    await cartAddToCart(product.id);
   };
 
   const filteredProducts = products.filter(product =>

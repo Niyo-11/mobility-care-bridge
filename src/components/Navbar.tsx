@@ -4,10 +4,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import careBridgeLogo from '../assets/CareBridgeLogo.png';
 import AuthButton from './AuthButton';
+import CartDropdown from './CartDropdown';
+import { useAuth } from '@/hooks/useAuth';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { user } = useAuth();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -50,7 +53,20 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="ml-4">
+            {user && (
+              <Link
+                to="/dashboard"
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  isActive('/dashboard')
+                    ? 'bg-emerald-100 text-emerald-700'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
+              >
+                Dashboard
+              </Link>
+            )}
+            <div className="ml-4 flex items-center space-x-2">
+              {user && <CartDropdown />}
               <AuthButton />
             </div>
           </div>
@@ -85,7 +101,21 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="px-3 py-2">
+            {user && (
+              <Link
+                to="/dashboard"
+                onClick={() => setIsOpen(false)}
+                className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors ${
+                  isActive('/dashboard')
+                    ? 'bg-emerald-100 text-emerald-700'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
+              >
+                Dashboard
+              </Link>
+            )}
+            <div className="px-3 py-2 flex items-center space-x-2">
+              {user && <CartDropdown />}
               <AuthButton />
             </div>
           </div>
