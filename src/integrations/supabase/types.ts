@@ -14,12 +14,48 @@ export type Database = {
   }
   public: {
     Tables: {
+      carts: {
+        Row: {
+          created_at: string
+          id: string
+          product_id: string | null
+          quantity: number
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          quantity?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_id?: string | null
+          quantity?: number
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "carts_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       merchants: {
         Row: {
           business_address: string | null
           business_city: string | null
           business_country: string | null
           business_description: string | null
+          business_documents: Json | null
           business_email: string | null
           business_name: string
           business_phone: string | null
@@ -28,7 +64,9 @@ export type Database = {
           listing_fee_paid: boolean | null
           logo_url: string | null
           merchant_type: Database["public"]["Enums"]["merchant_type"]
+          registration_number: string | null
           status: Database["public"]["Enums"]["merchant_status"]
+          tax_id: string | null
           updated_at: string
           user_id: string
           website_url: string | null
@@ -38,6 +76,7 @@ export type Database = {
           business_city?: string | null
           business_country?: string | null
           business_description?: string | null
+          business_documents?: Json | null
           business_email?: string | null
           business_name: string
           business_phone?: string | null
@@ -46,7 +85,9 @@ export type Database = {
           listing_fee_paid?: boolean | null
           logo_url?: string | null
           merchant_type?: Database["public"]["Enums"]["merchant_type"]
+          registration_number?: string | null
           status?: Database["public"]["Enums"]["merchant_status"]
+          tax_id?: string | null
           updated_at?: string
           user_id: string
           website_url?: string | null
@@ -56,6 +97,7 @@ export type Database = {
           business_city?: string | null
           business_country?: string | null
           business_description?: string | null
+          business_documents?: Json | null
           business_email?: string | null
           business_name?: string
           business_phone?: string | null
@@ -64,7 +106,9 @@ export type Database = {
           listing_fee_paid?: boolean | null
           logo_url?: string | null
           merchant_type?: Database["public"]["Enums"]["merchant_type"]
+          registration_number?: string | null
           status?: Database["public"]["Enums"]["merchant_status"]
+          tax_id?: string | null
           updated_at?: string
           user_id?: string
           website_url?: string | null
