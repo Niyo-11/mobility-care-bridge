@@ -19,17 +19,21 @@ import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./hooks/useAuth";
 import { CartProvider } from "./hooks/useCart";
+import { LanguageProvider } from "./contexts/LanguageContext";
+import { CurrencyProvider } from "./contexts/CurrencyContext";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <AuthProvider>
-        <CartProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
+      <LanguageProvider>
+        <CurrencyProvider>
+          <AuthProvider>
+            <CartProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
             <div className="min-h-screen bg-background">
               <Navbar />
               <Routes>
@@ -47,9 +51,11 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>
-          </BrowserRouter>
-        </CartProvider>
-      </AuthProvider>
+              </BrowserRouter>
+            </CartProvider>
+          </AuthProvider>
+        </CurrencyProvider>
+      </LanguageProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

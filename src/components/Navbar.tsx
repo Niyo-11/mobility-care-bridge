@@ -5,22 +5,25 @@ import { Menu, X } from 'lucide-react';
 import careBridgeLogo from '../assets/CareBridgeLogo.png';
 import AuthButton from './AuthButton';
 import CartDropdown from './CartDropdown';
+import LanguageCurrencySelector from './LanguageCurrencySelector';
 import { useAuth } from '@/hooks/useAuth';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { user } = useAuth();
+  const { t } = useLanguage();
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Marketplace', href: '/marketplace' },
-    { name: 'Impact', href: '/impact' },
-    { name: 'Partners', href: '/partners' },
-    { name: 'Donate', href: '/donate' },
-    { name: 'FAQ', href: '/faq' },
-    { name: 'Contact', href: '/contact' },
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.marketplace'), href: '/marketplace' },
+    { name: t('nav.impact'), href: '/impact' },
+    { name: t('nav.partners'), href: '/partners' },
+    { name: t('nav.donate'), href: '/donate' },
+    { name: t('nav.faq'), href: '/faq' },
+    { name: t('nav.contact'), href: '/contact' },
   ];
 
   const isActive = (href: string) => location.pathname === href;
@@ -62,10 +65,11 @@ const Navbar = () => {
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
-                Dashboard
+                {t('nav.dashboard')}
               </Link>
             )}
             <div className="ml-4 flex items-center space-x-2">
+              <LanguageCurrencySelector />
               {user && <CartDropdown />}
               <AuthButton />
             </div>
@@ -111,7 +115,7 @@ const Navbar = () => {
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
-                Dashboard
+                {t('nav.dashboard')}
               </Link>
             )}
             <div className="px-3 py-2 flex items-center space-x-2">
