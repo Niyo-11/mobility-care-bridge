@@ -152,16 +152,46 @@ export type TranslationKey =
   
   // About
   | 'about.title'
+  | 'about.hero.title'
+  | 'about.hero.subtitle'
+  | 'about.hero.description'
   | 'about.mission.title'
   | 'about.mission.description'
   | 'about.vision.title'
   | 'about.vision.description'
   | 'about.values.title'
+  | 'about.values.description'
+  | 'about.values.compassion.title'
+  | 'about.values.compassion.description'
+  | 'about.values.community.title'
+  | 'about.values.community.description'
+  | 'about.values.accessibility.title'
+  | 'about.values.accessibility.description'
+  | 'about.values.impact.title'
+  | 'about.values.impact.description'
   | 'about.values.compassion'
   | 'about.values.integrity'
   | 'about.values.innovation'
   | 'about.values.collaboration'
+  | 'about.story.title'
+  | 'about.story.beginning.title'
+  | 'about.story.beginning.description'
+  | 'about.story.growth.title'
+  | 'about.story.growth.description'
+  | 'about.story.future.title'
+  | 'about.story.future.description'
+  | 'about.achievements.title'
+  | 'about.achievements.description'
+  | 'about.achievements.peopleServed'
+  | 'about.achievements.aidsDistributed'
+  | 'about.achievements.countriesReached'
+  | 'about.achievements.satisfactionRate'
   | 'about.team.title'
+  | 'about.team.description'
+  | 'about.cta.title'
+  | 'about.cta.description'
+  | 'about.cta.becomePartner'
+  | 'about.cta.contactUs'
   
   // Contact
   | 'contact.title'
@@ -298,7 +328,7 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     // Marketplace
     'marketplace.title': 'Care Bridge Marketplace',
     'marketplace.subtitle': 'Quality Healthcare Accessories',
-    'marketplace.description': 'connecting you with affordable health care accessories across Rwanda and Nigeria',
+    'marketplace.description': 'Connecting you with affordable healthcare accessories across Rwanda and Nigeria',
     'marketplace.searchPlaceholder': 'Search products...',
     'marketplace.filterButton': 'Filters',
     'marketplace.categories': 'Categories',
@@ -388,16 +418,46 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     
     // About
     'about.title': 'About Care Bridge',
+    'about.hero.title': 'About Care Bridge',
+    'about.hero.subtitle': 'Bridging Healthcare Access Gaps',
+    'about.hero.description': 'We are committed to ensuring that essential healthcare accessories reach everyone who needs them, regardless of their economic situation.',
     'about.mission.title': 'Our Mission',
-    'about.mission.description': 'To bridge the gap in access to quality healthcare accessories and mobility aids across Rwanda and Nigeria.',
+    'about.mission.description': 'To bridge the gap in healthcare accessibility by connecting donors with those in need, ensuring everyone has access to essential mobility aids and healthcare accessories.',
     'about.vision.title': 'Our Vision',
-    'about.vision.description': 'A world where everyone has access to the healthcare accessories they need to live with dignity and independence.',
-    'about.values.title': 'Our Values',
+    'about.vision.description': 'A world where healthcare accessibility is not limited by economic barriers, and every person can live with dignity and independence.',
+    'about.values.title': 'Our Core Values',
+    'about.values.description': 'These values guide everything we do',
+    'about.values.compassion.title': 'Compassion',
+    'about.values.compassion.description': 'We approach every interaction with empathy and understanding',
+    'about.values.community.title': 'Community',
+    'about.values.community.description': 'We believe in the power of community to create lasting change',
+    'about.values.accessibility.title': 'Accessibility',
+    'about.values.accessibility.description': 'Everyone deserves access to healthcare regardless of circumstances',
+    'about.values.impact.title': 'Impact',
+    'about.values.impact.description': 'We measure success by the lives we improve and communities we strengthen',
+    'about.story.title': 'Our Story',
+    'about.story.beginning.title': 'How We Started',
+    'about.story.beginning.description': 'Care Bridge was founded with a simple but powerful idea: healthcare accessories should be accessible to everyone, not just those who can afford them.',
+    'about.story.growth.title': 'Growing Impact',
+    'about.story.growth.description': 'From our humble beginnings, we have grown to serve thousands of people across Rwanda and Nigeria, building partnerships with local organizations.',
+    'about.story.future.title': 'Looking Forward',
+    'about.story.future.description': 'We continue to expand our reach, improve our services, and work towards a future where healthcare accessibility is a reality for all.',
+    'about.achievements.title': 'Our Impact',
+    'about.achievements.description': 'See the difference we have made together',
+    'about.achievements.peopleServed': 'People Served',
+    'about.achievements.aidsDistributed': 'Healthcare Aids Distributed',
+    'about.achievements.countriesReached': 'Countries Reached',
+    'about.achievements.satisfactionRate': 'Satisfaction Rate',
+    'about.team.title': 'Meet Our Team',
+    'about.team.description': 'Dedicated professionals working to make healthcare accessible',
+    'about.cta.title': 'Join Our Mission',
+    'about.cta.description': 'Together, we can create a world where healthcare accessibility is not a privilege but a right.',
+    'about.cta.becomePartner': 'Become a Partner',
+    'about.cta.contactUs': 'Contact Us',
     'about.values.compassion': 'Compassion',
     'about.values.integrity': 'Integrity',
     'about.values.innovation': 'Innovation',
     'about.values.collaboration': 'Collaboration',
-    'about.team.title': 'Our Team',
     
     // Contact
     'contact.title': 'Contact Us',
@@ -624,16 +684,46 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     
     // About
     'about.title': 'Inyandiko za Care Bridge',
+    'about.hero.title': 'Inyandiko za Care Bridge',
+    'about.hero.subtitle': 'Gushyira Uburyohe mu Kubona Ubuvuzi',
+    'about.hero.description': 'Twiteguye kumenya ko ibikoresho byingirakamaro byubuvuzi bigera kumuntu wese ubikeneye, utitaye kubushobozi bwe bwebukungu.',
     'about.mission.title': 'Intego Yacu',
     'about.mission.description': 'Gushyira uburyohe mu kubona ibikoresho byiza by\'ubuvuzi n\'ubufasha bwo kugenda mu Rwanda no muri Nigeriya.',
     'about.vision.title': 'Icyerekezo Cyacu',
     'about.vision.description': 'Isi aho umuntu wese agira uburenganzira bwo kubona ibikoresho by\'ubuvuzi akeneye kugira ngo abeho mu cyubahiro n\'ubwigenge.',
     'about.values.title': 'Indangagaciro Zacu',
+    'about.values.description': 'Izi ndangagaciro ziyobora ibyose dukora',
+    'about.values.compassion.title': 'Impuhwe',
+    'about.values.compassion.description': 'Dukwegera buri kuvugana n\'impuhwe no kumva',
+    'about.values.community.title': 'Muryango',
+    'about.values.community.description': 'Twizera muri mbaraga za muryango mu guhindura ibihe byinshi',
+    'about.values.accessibility.title': 'Kuboneka',
+    'about.values.accessibility.description': 'Umuntu wese akwiye kubona ubuvuzi atitaye ku bidukikije',
+    'about.values.impact.title': 'Ingaruka',
+    'about.values.impact.description': 'Dupima intsinzi n\'ubuzima dutunze n\'amatsinda dukomeye',
+    'about.story.title': 'Inkuru Yacu',
+    'about.story.beginning.title': 'Uburyo Twatangiye',
+    'about.story.beginning.description': 'Care Bridge yashinzwe n\'igitekerezo cy\'ubunyangamugayo: ibikoresho by\'ubuvuzi bigomba kuboneka kuri bose.',
+    'about.story.growth.title': 'Ingaruka Zikura',
+    'about.story.growth.description': 'Kuva mu ntangiriro zacu, twakuze tufasha abantu ibihumbi mu Rwanda no muri Nigeriya.',
+    'about.story.future.title': 'Kureba Imbere',
+    'about.story.future.description': 'Dukomeza kwagura ubufasha bwacu, dunonoseza serivisi zacu.',
+    'about.achievements.title': 'Ingaruka Zacu',
+    'about.achievements.description': 'Reba itandukaniro twakoreye hamwe',
+    'about.achievements.peopleServed': 'Abantu Bafashijwe',
+    'about.achievements.aidsDistributed': 'Ubufasha bw\'Ubuvuzi Bwagabanijwe',
+    'about.achievements.countriesReached': 'Ibihugu Byagerwemo',
+    'about.achievements.satisfactionRate': 'Igipimo cy\'Kunyuzwa',
+    'about.team.title': 'Huza n\'Itsinda Ryacu',
+    'about.team.description': 'Abakozi biyemeje bakora kugira ngo ubuvuzi bubone',
+    'about.cta.title': 'Injira mu Ntego Yacu',
+    'about.cta.description': 'Hamwe, dushobora gukora isi aho kubona ubuvuzi ari uburenganzira.',
+    'about.cta.becomePartner': 'Ba Umufatanyabikorwa',
+    'about.cta.contactUs': 'Kuvugana',
     'about.values.compassion': 'Ubwoba',
     'about.values.integrity': 'Ubunyangamugayo',
     'about.values.innovation': 'Uduhuzwa',
     'about.values.collaboration': 'Ubufatanye',
-    'about.team.title': 'Itsinda Ryacu',
     
     // Contact
     'contact.title': 'Kuvugana',

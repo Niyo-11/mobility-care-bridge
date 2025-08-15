@@ -1,12 +1,16 @@
 
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Users, CheckCircle, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 import hopeInnovation from '@/assets/children.jpg';
 import mobilityAidUser from '@/assets/disabled_ppl.jpg';
 import healthcareProfessional from '@/assets/mobility_aids.jpg';
 
 const Home = () => {
+  const { t } = useLanguage();
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -15,38 +19,35 @@ const Home = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
-                Bridging the Gap in{' '}
-                <span className="text-emerald-600">Access to Mobility Aids</span>
+                {t('home.hero.title')}
               </h1>
               
               <p className="text-xl text-slate-600 leading-relaxed">
-                We connect generous donors with people in need, ensuring that mobility aids like wheelchairs, 
-                crutches, and foot supports reach those who need them most. Every donation creates independence 
-                and dignity for someone in our community.
+                {t('home.hero.description')}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4">
                   <Link to="/donate">
-                    Donate Now <ArrowRight className="ml-2 h-5 w-5" />
+                    {t('home.hero.donateNow')} <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 
                 <Button asChild variant="outline" size="lg" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4">
                   <Link to="/about">
-                    Learn More
+                    {t('home.hero.learnMore')}
                   </Link>
                 </Button>
                 
                 <Button asChild variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-4">
                   <Link to="/marketplace">
-                    Shop Marketplace
+                    {t('home.hero.shopMarketplace')}
                   </Link>
                 </Button>
                 
                 <Button asChild variant="outline" size="lg" className="border-gray-600 text-gray-600 hover:bg-gray-50 px-8 py-4">
                   <Link to="/contact">
-                    Get in Touch
+                    {t('home.hero.getInTouch')}
                   </Link>
                 </Button>
               </div>

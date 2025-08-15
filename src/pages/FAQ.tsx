@@ -1,8 +1,9 @@
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const FAQ = () => {
+  const { t } = useLanguage();
   const [openItems, setOpenItems] = useState<number[]>([0]); // First item open by default
 
   const toggleItem = (index: number) => {
@@ -48,57 +49,70 @@ const FAQ = () => {
     },
     {
       question: "How do I know my donation made a difference?",
-      answer: "We provide updates to donors about the impact of their contributions. While we protect recipient privacy, we share general information about how donations are helping people in our community regain independence and mobility."
+      answer: "We believe in transparency and impact reporting. After your donated item is distributed, we'll send you updates about how it's being used and the difference it's making in someone's life. We respect privacy while still sharing the positive impact of your generosity."
     },
     {
-      question: "Can organizations or businesses make bulk donations?",
-      answer: "Yes! We welcome bulk donations from healthcare facilities, organizations, and businesses. Please contact us directly to discuss logistics for larger donations and any special arrangements that may be needed."
+      question: "Can I donate money instead of physical items?",
+      answer: "Yes! Monetary donations help us cover repair costs, transportation, storage, and administrative expenses. Financial support is just as valuable as physical donations and helps us maintain our operations to serve more people in need."
+    },
+    {
+      question: "What condition should items be in when I donate?",
+      answer: "We accept items in various conditions, from gently used to those needing minor repairs. Items should be structurally sound and safe. Our partners can handle cleaning, minor repairs, and refurbishment, but items should not be severely damaged beyond repair."
+    },
+    {
+      question: "How do you ensure donated items reach the right people?",
+      answer: "We work exclusively with verified partner organizations including NGOs, healthcare providers, and community groups. These partners have established systems for identifying, verifying, and supporting individuals who genuinely need mobility aids."
     }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
-      <section className="bg-gradient-to-br from-slate-50 to-blue-50 py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-blue-100 p-4 rounded-full w-20 h-20 mx-auto mb-6 flex items-center justify-center">
-            <HelpCircle className="h-10 w-10 text-blue-600" />
+      <section className="py-20 text-center">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-center mb-6">
+            <div className="bg-blue-100 p-4 rounded-full">
+              <HelpCircle className="h-12 w-12 text-blue-600" />
+            </div>
           </div>
+          
           <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            Frequently Asked Questions
+            {t('faq.title')}
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed">
-            Find answers to common questions about donating and receiving mobility aids
+            {t('faq.subtitle')}
           </p>
         </div>
       </section>
 
-      {/* FAQ Accordion */}
+      {/* FAQ Items */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-4">
             {faqData.map((item, index) => (
               <div 
-                key={index}
-                className="bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition-shadow"
+                key={index} 
+                className="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden transition-all duration-200 hover:shadow-lg"
               >
                 <button
                   onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-slate-50 rounded-xl transition-colors"
+                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
                 >
-                  <h3 className="text-lg font-semibold text-slate-800 pr-4">
+                  <h3 className="text-lg font-semibold text-slate-800 pr-8">
                     {item.question}
                   </h3>
-                  {openItems.includes(index) ? (
-                    <ChevronUp className="h-5 w-5 text-slate-600 flex-shrink-0" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5 text-slate-600 flex-shrink-0" />
-                  )}
+                  <div className="flex-shrink-0">
+                    {openItems.includes(index) ? (
+                      <ChevronUp className="h-5 w-5 text-slate-600" />
+                    ) : (
+                      <ChevronDown className="h-5 w-5 text-slate-600" />
+                    )}
+                  </div>
                 </button>
                 
                 {openItems.includes(index) && (
-                  <div className="px-6 pb-4">
-                    <div className="border-t border-slate-100 pt-4">
+                  <div className="px-8 pb-6">
+                    <div className="border-t border-slate-200 pt-6">
                       <p className="text-slate-600 leading-relaxed">
                         {item.answer}
                       </p>
@@ -112,20 +126,22 @@ const FAQ = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-slate-800 mb-4">
-            Still Have Questions?
+            Still have questions?
           </h2>
           <p className="text-xl text-slate-600 mb-8">
-            We're here to help! Reach out to us anytime for personalized assistance.
+            Our team is here to help. Reach out to us directly for personalized assistance.
           </p>
-          <a 
-            href="/contact" 
-            className="inline-flex items-center px-6 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition-colors"
-          >
-            Contact Us
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
+              Contact Support
+            </button>
+            <button className="border border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 rounded-lg font-semibold transition-colors">
+              Schedule a Call
+            </button>
+          </div>
         </div>
       </section>
     </div>

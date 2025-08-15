@@ -8,6 +8,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '@/hooks/useAuth';
 import { useCart } from '@/hooks/useCart';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
 import { supabase } from '@/integrations/supabase/client';
 
 interface Product {
@@ -45,6 +47,8 @@ const Marketplace = () => {
   const { toast } = useToast();
   const { user } = useAuth();
   const { addToCart: cartAddToCart } = useCart();
+  const { t } = useLanguage();
+  const { formatPrice: formatCurrencyPrice } = useCurrency();
 
   useEffect(() => {
     fetchProducts();
@@ -161,16 +165,9 @@ const Marketplace = () => {
     (product.merchant?.business_name?.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(price);
-  };
-
   const getPriceRange = (min?: number, max?: number) => {
     if (!min || !max) return null;
-    return `Market range: ${formatPrice(min)} - ${formatPrice(max)}`;
+    return `Market range: ${formatCurrencyPrice(min)} - ${formatCurrencyPrice(max)}`;
   };
 
   if (loading) {
@@ -191,9 +188,9 @@ const Marketplace = () => {
       <section className="bg-gradient-to-r from-primary to-accent text-primary-foreground py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">Mobility Aid Marketplace</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('marketplace.title')}</h1>
             <p className="text-xl mb-6 opacity-90">
-              Connecting you with affordable mobility solutions across rural Nigeria and Rwanda
+              {t('marketplace.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
               <div className="flex-1 relative">
@@ -319,7 +316,7 @@ const Marketplace = () => {
 
                     <div className="space-y-1">
                       <div className="text-2xl font-bold text-primary">
-                        {formatPrice(product.price)}
+                        {formatCurrencyPrice(product.price)}
                       </div>
                       {getPriceRange(product.market_price_min, product.market_price_max) && (
                         <div className="text-xs text-muted-foreground">
