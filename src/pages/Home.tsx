@@ -26,7 +26,7 @@ const Home = () => {
                 {t('home.hero.description')}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4">
                   <Link to="/donate">
                     {t('home.hero.donateNow')} <ArrowRight className="ml-2 h-5 w-5" />

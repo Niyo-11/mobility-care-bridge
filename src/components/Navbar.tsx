@@ -118,9 +118,12 @@ const Navbar = () => {
                 {t('nav.dashboard')}
               </Link>
             )}
-            <div className="px-3 py-2 flex items-center space-x-2">
-              {user && <CartDropdown />}
-              <AuthButton />
+            <div className="px-3 py-2 space-y-3">
+              <LanguageCurrencySelector />
+              <div className="flex items-center space-x-2">
+                {user && <CartDropdown />}
+                <AuthButton />
+              </div>
             </div>
           </div>
         </div>

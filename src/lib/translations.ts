@@ -328,7 +328,7 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     // Marketplace
     'marketplace.title': 'Care Bridge Marketplace',
     'marketplace.subtitle': 'Quality Healthcare Accessories',
-    'marketplace.description': 'Connecting you with affordable healthcare accessories across Rwanda and Nigeria',
+    'marketplace.description': 'Connecting you with affordable healthcare accessories',
     'marketplace.searchPlaceholder': 'Search products...',
     'marketplace.filterButton': 'Filters',
     'marketplace.categories': 'Categories',
