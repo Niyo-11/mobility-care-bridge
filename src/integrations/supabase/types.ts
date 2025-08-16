@@ -14,6 +14,84 @@ export type Database = {
   }
   public: {
     Tables: {
+      admin_notifications: {
+        Row: {
+          admin_user_id: string | null
+          created_at: string
+          id: string
+          is_read: boolean | null
+          message: string
+          related_merchant_id: string | null
+          title: string
+          type: string | null
+        }
+        Insert: {
+          admin_user_id?: string | null
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          message: string
+          related_merchant_id?: string | null
+          title: string
+          type?: string | null
+        }
+        Update: {
+          admin_user_id?: string | null
+          created_at?: string
+          id?: string
+          is_read?: boolean | null
+          message?: string
+          related_merchant_id?: string | null
+          title?: string
+          type?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "admin_notifications_admin_user_id_fkey"
+            columns: ["admin_user_id"]
+            isOneToOne: false
+            referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "admin_notifications_related_merchant_id_fkey"
+            columns: ["related_merchant_id"]
+            isOneToOne: false
+            referencedRelation: "merchants"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      admin_users: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          is_active: boolean | null
+          role: Database["public"]["Enums"]["admin_role"]
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_active?: boolean | null
+          role?: Database["public"]["Enums"]["admin_role"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          is_active?: boolean | null
+          role?: Database["public"]["Enums"]["admin_role"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       carts: {
         Row: {
           created_at: string
@@ -390,9 +468,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      approve_merchant: {
+        Args: { admin_notes?: string; approved: boolean; merchant_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
+      admin_role: "super_admin" | "merchant_admin" | "content_admin"
       merchant_status: "pending" | "approved" | "suspended"
       merchant_type: "partner" | "vendor"
       order_status:
@@ -530,6 +612,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      admin_role: ["super_admin", "merchant_admin", "content_admin"],
       merchant_status: ["pending", "approved", "suspended"],
       merchant_type: ["partner", "vendor"],
       order_status: [
