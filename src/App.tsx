@@ -17,6 +17,10 @@ import Impact from "./pages/Impact";
 import Dashboard from "./pages/Dashboard";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
+import MerchantApplication from "./pages/MerchantApplication";
+import MerchantDashboard from "./pages/MerchantDashboard";
+import AddProduct from "./pages/AddProduct";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 import { AuthProvider } from "./hooks/useAuth";
 import { CartProvider } from "./hooks/useCart";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -48,6 +52,10 @@ const App = () => (
                 <Route path="/impact" element={<Impact />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/checkout" element={<Checkout />} />
+                <Route path="/merchant-application" element={<MerchantApplication />} />
+                <Route path="/merchant/dashboard" element={<MerchantDashboard />} />
+                <Route path="/merchant/add-product" element={<AddProduct />} />
+                <Route path="/checkout/success" element={<CheckoutSuccess />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>

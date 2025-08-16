@@ -86,79 +86,43 @@ const Checkout = () => {
     setLoading(true);
 
     try {
-      // Group items by merchant
-      const itemsByMerchant = items.reduce((acc, item) => {
-        const merchantId = 'demo-merchant'; // For demo purposes
-        if (!acc[merchantId]) {
-          acc[merchantId] = [];
-        }
-        acc[merchantId].push(item);
-        return acc;
-      }, {} as Record<string, typeof items>);
+      // Prepare cart items for Stripe
+      const cartItems = items.map(item => ({
+        id: item.product_id,
+        name: item.product.name,
+        description: `Product: ${item.product.name}`,
+        price: item.product.price,
+        quantity: item.quantity,
+        merchant_id: 'demo-merchant', // For demo purposes
+      }));
 
-      // Create orders for each merchant
-      for (const [merchantId, merchantItems] of Object.entries(itemsByMerchant)) {
-        const totalAmount = merchantItems.reduce(
-          (sum, item) => sum + (item.product.price * item.quantity), 
-          0
-        );
-
-        // Create order
-        const { data: order, error: orderError } = await supabase
-          .from('orders')
-          .insert({
-            user_id: user?.id,
-            merchant_id: merchantId,
-            total_amount: totalAmount,
-            status: 'pending',
-            customer_name: `${shippingForm.firstName} ${shippingForm.lastName}`,
-            customer_email: shippingForm.email,
-            shipping_address: {
-              address: shippingForm.address,
-              city: shippingForm.city,
-              country: shippingForm.country,
-              postalCode: shippingForm.postalCode,
-              phone: shippingForm.phone,
-            },
-          })
-          .select()
-          .single();
-
-        if (orderError) throw orderError;
-
-        // Create order items
-        for (const item of merchantItems) {
-          const { error: itemError } = await supabase
-            .from('order_items')
-            .insert({
-              order_id: order.id,
-              product_id: item.product_id,
-              quantity: item.quantity,
-              unit_price: item.product.price,
-              total_price: item.product.price * item.quantity,
-            });
-
-          if (itemError) throw itemError;
-        }
-      }
-
-      // Clear cart after successful order
-      await clearCart();
-
-      toast({
-        title: "Order placed successfully!",
-        description: "Thank you for your order. You'll receive a confirmation email shortly.",
+      // Call Stripe checkout function
+      const { data, error } = await supabase.functions.invoke('create-checkout', {
+        body: {
+          cartItems,
+          shippingAddress: {
+            name: `${shippingForm.firstName} ${shippingForm.lastName}`,
+            ...shippingForm
+          },
+          userEmail: user?.email || shippingForm.email,
+        },
       });
 
-      navigate('/dashboard?tab=orders');
+      if (error) throw error;
+
+      if (data?.url) {
+        // Redirect to Stripe Checkout
+        window.location.href = data.url;
+      } else {
+        throw new Error('No checkout URL received');
+      }
     } catch (error) {
-      console.error('Error placing order:', error);
+      console.error('Payment processing error:', error);
       toast({
-        title: "Error",
-        description: "Failed to place order. Please try again.",
+        title: "Payment failed",
+        description: "There was an error processing your payment. Please try again.",
         variant: "destructive",
       });
-    } finally {
       setLoading(false);
     }
   };
