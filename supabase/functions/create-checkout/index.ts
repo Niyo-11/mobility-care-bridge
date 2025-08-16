@@ -70,7 +70,35 @@ serve(async (req) => {
       }
     }
 
-    // Create checkout session
+    // Get the first product's merchant as the main merchant
+    const supabaseService = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
+      { auth: { persistSession: false } }
+    );
+
+    let merchantId = null;
+    const firstProductId = cartItems[0].productId || cartItems[0].id;
+    const { data: firstProduct, error: productError } = await supabaseService
+      .from('products')
+      .select('merchant_id')
+      .eq('id', firstProductId)
+      .single();
+
+    if (productError || !firstProduct?.merchant_id) {
+      console.error('Product fetch error:', productError);
+      // Use a fallback approach - get any approved merchant
+      const { data: fallbackMerchant } = await supabaseService
+        .from('merchants')
+        .select('id')
+        .eq('status', 'approved')
+        .limit(1)
+        .single();
+      
+      merchantId = fallbackMerchant?.id || 'demo-merchant';
+    } else {
+      merchantId = firstProduct.merchant_id;
+    }
     const session = await stripe.checkout.sessions.create({
       customer: customerId,
       customer_email: customerId ? undefined : email,
@@ -91,7 +119,7 @@ serve(async (req) => {
     if (user) {
       const orderData = {
         user_id: user.id,
-        merchant_id: cartItems[0]?.merchant_id || 'demo-merchant',
+        merchant_id: merchantId,
         total_amount: totalAmount,
         status: 'pending',
         stripe_session_id: session.id,

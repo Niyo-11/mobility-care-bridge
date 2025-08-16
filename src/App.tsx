@@ -12,6 +12,7 @@ import Auth from "./pages/Auth";
 import Donate from "./pages/Donate";
 import Partners from "./pages/Partners";
 import FAQ from "./pages/FAQ";
+import AdminDashboard from "./pages/AdminDashboard";
 import Contact from "./pages/Contact";
 import Impact from "./pages/Impact";
 import Dashboard from "./pages/Dashboard";
@@ -51,7 +52,8 @@ const App = () => (
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/impact" element={<Impact />} />
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/checkout" element={<Checkout />} />
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/checkout" element={<Checkout />} />
                 <Route path="/merchant-application" element={<MerchantApplication />} />
                 <Route path="/merchant/dashboard" element={<MerchantDashboard />} />
                 <Route path="/merchant/add-product" element={<AddProduct />} />

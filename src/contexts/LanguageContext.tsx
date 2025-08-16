@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { translations, TranslationKey } from '@/lib/translations';
 
-type Language = 'en' | 'rw';
+type Language = 'en' | 'rw' | 'ha' | 'ig' | 'yo';
 
 interface LanguageContextType {
   language: Language;
