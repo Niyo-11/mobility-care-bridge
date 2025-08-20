@@ -355,15 +355,14 @@ const Marketplace = () => {
       {/* Call to Action */}
       <section className="bg-muted py-12">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Join Our Mission</h2>
-          <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Our marketplace supports affordable mobility aids for rural communities. 
-            Every purchase helps bridge the accessibility gap in Nigeria and Rwanda.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg">Become a Partner</Button>
-            <Button variant="outline" size="lg">Learn More</Button>
-          </div>
+            <h2 className="text-3xl font-bold mb-4">{t('marketplace.partnerWithUs')}</h2>
+            <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+              {t('marketplace.partnerDescription')}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button size="lg">{t('marketplace.becomePartner')}</Button>
+              <Button variant="outline" size="lg">{t('common.learnMore')}</Button>
+            </div>
         </div>
       </section>
     </div>

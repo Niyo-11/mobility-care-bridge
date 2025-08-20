@@ -52,12 +52,16 @@ export type TranslationKey =
   | 'home.stats.aidsDonated'
   | 'home.stats.activePartners'
   | 'home.mission.title'
+  | 'home.mission.subtitle'
   | 'home.mission.description'
   | 'home.mission.seeImpact'
   | 'home.community.title'
   | 'home.community.description'
   | 'home.community.impact'
   | 'home.community.meetPartners'
+  | 'home.community.nextSteps'
+  | 'marketplace.partnerWithUs'
+  | 'marketplace.partnerDescription'
   
   // Marketplace
   | 'marketplace.title'
@@ -85,6 +89,18 @@ export type TranslationKey =
   | 'marketplace.categories.orthotics'
   | 'marketplace.categories.hearingAids'
   | 'marketplace.categories.dailyLiving'
+  
+  // Footer
+  | 'footer.mission'
+  | 'footer.quickLinks'
+  | 'footer.support'
+  | 'footer.contact'
+  | 'footer.becomePartner'
+  | 'footer.helpCenter'
+  | 'footer.allRightsReserved'
+  | 'footer.privacy'
+  | 'footer.terms'
+  | 'footer.cookies'
   
   // Auth
   | 'auth.signIn'
@@ -318,12 +334,14 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     'home.stats.aidsDonated': 'Mobility Aids Donated',
     'home.stats.activePartners': 'Active Partners',
     'home.mission.title': 'Our Mission is Simple',
-    'home.mission.description': 'We believe that mobility should never be a barrier to living a full life.',
+    'home.mission.subtitle': 'We believe that mobility should never be a barrier to living a full life.',
+    'home.mission.description': 'Through our network of generous donors, skilled repair partners, and trusted NGOs, we ensure that quality mobility aids reach the people who need them most.',
     'home.mission.seeImpact': 'See Our Impact',
     'home.community.title': 'Building Stronger Communities',
-    'home.community.description': 'Every donation creates a ripple effect of positive change.',
-    'home.community.impact': 'Our network of partners ensures that every mobility aid reaches the person who needs it most.',
+    'home.community.description': 'Every donation creates a ripple effect of positive change. When someone regains their mobility, they can participate more fully in their community, maintain their independence, and continue contributing to society.',
+    'home.community.impact': 'Our network of partners ensures that each mobility aid finds its way to someone who truly needs it, creating lasting impact that extends far beyond the initial donation.',
     'home.community.meetPartners': 'Meet Our Partners',
+    'home.community.nextSteps': 'What happens next?',
     
     // Marketplace
     'marketplace.title': 'Care Bridge Marketplace',
@@ -341,8 +359,8 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     'marketplace.outOfStock': 'Out of Stock',
     'marketplace.inStock': 'In Stock',
     'marketplace.noProducts': 'No products found matching your criteria.',
-    'marketplace.partnerWithUs': 'Partner with Us',
-    'marketplace.partnerDescription': 'Join our network of trusted healthcare providers and reach more customers.',
+    'marketplace.partnerWithUs': 'Join Our Mission',
+    'marketplace.partnerDescription': 'Our marketplace supports affordable mobility aids for rural communities. Every purchase helps bridge the accessibility gap in Nigeria and Rwanda.',
     'marketplace.becomePartner': 'Become a Partner',
     'marketplace.noPrice': 'Contact for pricing',
     'marketplace.categories.wheelchairs': 'Wheelchairs',
@@ -351,7 +369,19 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     'marketplace.categories.orthotics': 'Orthotics',
     'marketplace.categories.hearingAids': 'Hearing Aids',
     'marketplace.categories.dailyLiving': 'Daily Living Aids',
-
+    
+    // Footer
+    'footer.mission': 'Connecting people with mobility needs to quality aids and support services across Nigeria and Rwanda.',
+    'footer.quickLinks': 'Quick Links',
+    'footer.support': 'Support',
+    'footer.contact': 'Contact Us',
+    'footer.becomePartner': 'Become a Partner',
+    'footer.helpCenter': 'Help Center',
+    'footer.allRightsReserved': 'All rights reserved.',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
+    'footer.cookies': 'Cookie Policy',
+    
     // Auth
     'auth.signIn': 'Sign In',
     'auth.signUp': 'Sign Up',
@@ -584,12 +614,14 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     'home.stats.aidsDonated': 'Ibikoresho byo kugenda byatanzwe',
     'home.stats.activePartners': 'Abo dufatanya',
     'home.mission.title': 'Intego yacu ni yoroshye',
-    'home.mission.description': 'Twizera ko kugenda bitakwiye kuba inzitizi mu kubana ubuzima buzuye.',
+    'home.mission.subtitle': 'Twizera ko kugenda bitakwiye kuba inzitizi mu kubana ubuzima buzuye.',
+    'home.mission.description': 'Binyuze mu rusobe rwacu rw\'abatanga impano binyangamugayo, abo dufatanya mu gusana bizeye, n\'imiryango y\'ubuntu yizeye, duhagurukira ko ibikoresho by\'ubwiyunge nziza bigera ku bantu babikeneye cyane.',
     'home.mission.seeImpact': 'Reba ingaruka zacu',
     'home.community.title': 'Kubaka imitima ikomeye',
-    'home.community.description': 'Buri mpano ikora impinduka nziza.',
-    'home.community.impact': 'Urusobemiyoboro rw\'abo dufatanya ruhagurukira ko buri gikoresho cyo kugenda kigera ku muntu ukikeneye cyane.',
+    'home.community.description': 'Buri mpano ikora impinduka nziza. Igihe umuntu agarura ubushobozi bwe bwo kugenda, ashobora kugira uruhare runini mu rugo rwe, agumana ubwigenge bwe, kandi akomeze gutanga uruhare mu baturage.',
+    'home.community.impact': 'Urusobemiyoboro rw\'abo dufatanya ruhagurukira ko buri gikoresho cyo kugenda kigera ku muntu ukikeneye cyane, gikora ingaruka zirambye zirenze impano y\'itangiriro.',
     'home.community.meetPartners': 'Bonane n\'abo dufatanya',
+    'home.community.nextSteps': 'Ni iki gitaha?',
     
     // Marketplace
     'marketplace.title': 'Isoko rya Care Bridge',
@@ -607,8 +639,8 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     'marketplace.outOfStock': 'Birarenze',
     'marketplace.inStock': 'Biraboneka',
     'marketplace.noProducts': 'Nta bicuruzwa byabonetse',
-    'marketplace.partnerWithUs': 'Dufatanye',
-    'marketplace.partnerDescription': 'Jya mu rusobemiyoboro rwacu rw\'abatanga serivisi z\'ubuvuzi uzizeye',
+    'marketplace.partnerWithUs': 'Jyana n\'intego yacu',
+    'marketplace.partnerDescription': 'Isoko ryacu rishyigikira ibikoresho byo kwivuza bifite igiciro gito byerekejwe imitima yo mu cyaro. Buri kigurwa gifasha mu guhuza icyuho cy\'ubushobozi mu Rwanda n\'Nijeriya.',
     'marketplace.becomePartner': 'Ba uwo dufatanya',
     'marketplace.noPrice': 'Duhamagare ku giciro',
     'marketplace.categories.wheelchairs': 'Amapine',
@@ -617,6 +649,18 @@ export const translations: Record<'en' | 'rw', Record<TranslationKey, string>> =
     'marketplace.categories.orthotics': 'Ibikoresho byo gukosora umubiri',
     'marketplace.categories.hearingAids': 'Ibikoresho byo kwumva',
     'marketplace.categories.dailyLiving': 'Ubuzima bwa buri munsi',
+    
+    // Footer
+    'footer.mission': 'Guhuza abantu bafite ibikenewe byo kugenda n\'ubufasha n\'ubufasha nziza mu Rwanda n\'Nijeriya.',
+    'footer.quickLinks': 'Ibisabwa vuba',
+    'footer.support': 'Ubufasha',
+    'footer.contact': 'Duhamagare',
+    'footer.becomePartner': 'Ba uwo dufatanya',
+    'footer.helpCenter': 'Ikigo cy\'ubufasha',
+    'footer.allRightsReserved': 'Uburenganzira bwose burarinzwe.',
+    'footer.privacy': 'Gahunda yo kubungabunga amakuru bwite',
+    'footer.terms': 'Amategeko yo gukoresha',
+    'footer.cookies': 'Gahunda ya kuki',
 
     // Auth
     'auth.signIn': 'Injira',

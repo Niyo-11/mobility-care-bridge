@@ -75,7 +75,7 @@ const Home = () => {
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
               <h3 className="text-3xl font-bold text-slate-800">125+</h3>
-              <p className="text-slate-600">People Helped</p>
+              <p className="text-slate-600">{t('home.stats.peopleHelped')}</p>
             </div>
             
             <div className="space-y-4">
@@ -83,7 +83,7 @@ const Home = () => {
                 <CheckCircle className="h-8 w-8 text-emerald-600" />
               </div>
               <h3 className="text-3xl font-bold text-slate-800">200+</h3>
-              <p className="text-slate-600">Aids Donated</p>
+              <p className="text-slate-600">{t('home.stats.aidsDonated')}</p>
             </div>
             
             <div className="space-y-4">
@@ -91,7 +91,7 @@ const Home = () => {
                 <Heart className="h-8 w-8 text-rose-600" />
               </div>
               <h3 className="text-3xl font-bold text-slate-800">50+</h3>
-              <p className="text-slate-600">Active Partners</p>
+              <p className="text-slate-600">{t('home.stats.activePartners')}</p>
             </div>
           </div>
         </div>
@@ -102,19 +102,19 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
-                Our Mission is Simple
-              </h2>
-              <p className="text-xl text-slate-600 leading-relaxed mb-8">
-                We believe that mobility should never be a barrier to living a full life. Through our network 
-                of generous donors, skilled repair partners, and trusted NGOs, we ensure that quality mobility 
-                aids reach the people who need them most.
-              </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-8">
+                  {t('home.mission.title')}
+                </h2>
+                <p className="text-xl text-slate-600 leading-relaxed mb-8">
+                  {t('home.mission.description')}
+                </p>
+            <div className="text-center">
               <Button asChild size="lg" variant="outline" className="border-slate-300">
                 <Link to="/impact">
-                  See Our Impact <ArrowRight className="ml-2 h-5 w-5" />
+                  {t('home.mission.seeImpact')} <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
+            </div>
             </div>
             
             <div className="order-1 lg:order-2">
@@ -148,20 +148,17 @@ const Home = () => {
             
             <div>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6">
-                Building Stronger Communities
+                {t('home.community.title')}
               </h2>
               <p className="text-xl text-slate-600 leading-relaxed mb-6">
-                Every donation creates a ripple effect of positive change. When someone regains their mobility, 
-                they can participate more fully in their community, maintain their independence, and continue 
-                contributing to society.
+                {t('home.community.description')}
               </p>
               <p className="text-lg text-slate-600 mb-8">
-                Our network of partners ensures that each mobility aid finds its way to someone who truly needs it, 
-                creating lasting impact that extends far beyond the initial donation.
+                {t('home.community.impact')}
               </p>
               <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
                 <Link to="/partners">
-                  Meet Our Partners <ArrowRight className="ml-2 h-5 w-5" />
+                  {t('home.community.meetPartners')} <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>

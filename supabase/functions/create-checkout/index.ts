@@ -77,6 +77,7 @@ serve(async (req) => {
       { auth: { persistSession: false } }
     );
 
+    // Get merchant_id from first product or create a demo merchant
     let merchantId = null;
     const firstProductId = cartItems[0].productId || cartItems[0].id;
     const { data: firstProduct, error: productError } = await supabaseService
@@ -87,15 +88,36 @@ serve(async (req) => {
 
     if (productError || !firstProduct?.merchant_id) {
       console.error('Product fetch error:', productError);
-      // Use a fallback approach - get any approved merchant
-      const { data: fallbackMerchant } = await supabaseService
+      // Create or get a demo merchant if none exists
+      const { data: existingMerchant } = await supabaseService
         .from('merchants')
         .select('id')
-        .eq('status', 'approved')
+        .eq('business_name', 'Demo Merchant')
         .limit(1)
         .single();
       
-      merchantId = fallbackMerchant?.id || 'demo-merchant';
+      if (existingMerchant) {
+        merchantId = existingMerchant.id;
+      } else {
+        // Create a demo merchant
+        const { data: newMerchant, error: merchantError } = await supabaseService
+          .from('merchants')
+          .insert({
+            user_id: user?.id || '00000000-0000-0000-0000-000000000000',
+            business_name: 'Demo Merchant',
+            business_description: 'Demo merchant for testing',
+            status: 'approved',
+            merchant_type: 'vendor'
+          })
+          .select('id')
+          .single();
+        
+        if (merchantError) {
+          console.error('Error creating demo merchant:', merchantError);
+          throw new Error('Unable to process order - no valid merchant');
+        }
+        merchantId = newMerchant.id;
+      }
     } else {
       merchantId = firstProduct.merchant_id;
     }
