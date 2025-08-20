@@ -472,6 +472,10 @@ export type Database = {
         Args: { admin_notes?: string; approved: boolean; merchant_id: string }
         Returns: boolean
       }
+      bootstrap_first_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
     }
     Enums: {
       admin_role: "super_admin" | "merchant_admin" | "content_admin"

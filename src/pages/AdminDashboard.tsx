@@ -59,6 +59,7 @@ const AdminDashboard = () => {
     }
 
     try {
+      // First try to check if user is already an admin
       const { data, error } = await supabase
         .from('admin_users')
         .select('role')
@@ -66,13 +67,32 @@ const AdminDashboard = () => {
         .eq('is_active', true)
         .single();
 
-      if (error && error.code !== 'PGRST116') {
-        throw error;
-      }
+      if (error && error.code === 'PGRST116') {
+        // User is not an admin, try to bootstrap as first admin
+        const { data: bootstrapData, error: bootstrapError } = await supabase
+          .rpc('bootstrap_first_admin');
 
-      setIsAdmin(!!data && ['super_admin', 'merchant_admin'].includes(data.role));
+        if (bootstrapError) {
+          console.error('Bootstrap error:', bootstrapError);
+          setIsAdmin(false);
+        } else if (bootstrapData) {
+          // Successfully became first admin
+          setIsAdmin(true);
+          toast({
+            title: "Admin access granted",
+            description: "You are now the system administrator.",
+          });
+        } else {
+          setIsAdmin(false);
+        }
+      } else if (error) {
+        throw error;
+      } else {
+        setIsAdmin(!!data && ['super_admin', 'merchant_admin'].includes(data.role));
+      }
     } catch (error) {
       console.error('Error checking admin status:', error);
+      setIsAdmin(false);
     } finally {
       setLoading(false);
     }

@@ -68,17 +68,19 @@ const Navbar = () => {
                 {t('nav.dashboard')}
               </Link>
             )}
-            {/* Admin link - you can add admin check logic here */}
-            <Link
-              to="/admin"
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                isActive('/admin')
-                  ? 'bg-emerald-100 text-emerald-700'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
-              }`}
-            >
-              Admin
-            </Link>
+            {/* Only show admin link to authenticated users */}
+            {user && (
+              <Link
+                to="/admin"
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  isActive('/admin')
+                    ? 'bg-emerald-100 text-emerald-700'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                }`}
+              >
+                Admin
+              </Link>
+            )}
             <div className="ml-4 flex items-center space-x-2">
               <LanguageCurrencySelector />
               {user && <CartDropdown />}

@@ -18,6 +18,9 @@ const LanguageCurrencySelector = () => {
   const languages = [
     { code: 'en' as const, name: 'English', flag: '🇺🇸' },
     { code: 'rw' as const, name: 'Kinyarwanda', flag: '🇷🇼' },
+    { code: 'ha' as const, name: 'Hausa', flag: '🇳🇬' },
+    { code: 'ig' as const, name: 'Igbo', flag: '🇳🇬' },
+    { code: 'yo' as const, name: 'Yoruba', flag: '🇳🇬' },
   ];
 
   const currencies: Array<{ code: Currency; name: string; symbol: string }> = [
