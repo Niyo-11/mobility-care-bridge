@@ -371,7 +371,7 @@ export const translations: Record<'en' | 'rw' | 'ha' | 'ig' | 'yo', Record<Trans
     'marketplace.categories.dailyLiving': 'Daily Living Aids',
     
     // Footer
-    'footer.mission': 'Connecting people with mobility needs to quality aids and support services across Nigeria and Rwanda.',
+    'footer.mission': 'Connecting people with medical aids and support services across Nigeria and Rwanda.',
     'footer.quickLinks': 'Quick Links',
     'footer.support': 'Support',
     'footer.contact': 'Contact Us',
