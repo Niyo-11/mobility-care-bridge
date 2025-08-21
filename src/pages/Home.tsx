@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Users, CheckCircle, Heart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import hopeInnovation from '@/assets/children.jpg';
-import mobilityAidUser from '@/assets/disabled_ppl.jpg';
-import healthcareProfessional from '@/assets/mobility_aids.jpg';
+import hopeInnovation from '@/assets/children.jpeg';
+import mobilityAidUser from '@/assets/disabled_ppl.jpeg';
+import healthcareProfessional from '@/assets/mobility_aids.webp';
 
 const Home = () => {
   const { t } = useLanguage();
