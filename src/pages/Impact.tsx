@@ -10,18 +10,18 @@ const Impact = () => {
   ];
 
   const donors = [
-    { name: 'Sarah Chen', location: 'San Francisco', item: 'Donated a wheelchair after her father\'s recovery' },
-    { name: 'Michael Rodriguez', location: 'Austin', item: 'Contributed walking aids and crutches' },
-    { name: 'Elena Petrov', location: 'Portland', item: 'Donated mobility scooter in excellent condition' },
-    { name: 'David Kim', location: 'Seattle', item: 'Shared multiple walking aids from clinic closure' },
-    { name: 'Lisa Thompson', location: 'Denver', item: 'Donated bath safety equipment collection' },
-    { name: 'Anonymous Donor', location: 'Phoenix', item: 'Major contribution of rehabilitation equipment' }
+    { name: 'Sarah Chen', location: 'Lagos', item: 'Donated a wheelchair after her father\'s recovery' },
+    { name: 'Michael Rodriguez', location: 'Kampala', item: 'Contributed walking aids and crutches' },
+    { name: 'Elena Petrov', location: 'Nairobi', item: 'Donated mobility scooter in excellent condition' },
+    { name: 'David Kim', location: 'Kigali', item: 'Shared multiple walking aids from clinic closure' },
+    { name: 'Lisa Thompson', location: 'Accra', item: 'Donated bath safety equipment collection' },
+    { name: 'Anonymous Donor', location: 'Addis Ababa', item: 'Major contribution of rehabilitation equipment' }
   ];
 
   const testimonial = {
     quote: "Receiving the wheelchair through Care Bridge changed everything for me. I can now get to work independently and take my children to the park. This program gave me back my freedom.",
     author: "Maria, Wheelchair Recipient",
-    location: "Oakland, CA"
+    location: "Kigali, RW"
   };
 
   const getColorClasses = (color: string) => {
