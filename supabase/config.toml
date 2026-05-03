@@ -26,8 +26,8 @@ file_size_limit = "50MiB"
 
 [auth]
 enabled = true
-site_url = "http://localhost:3000"
-additional_redirect_urls = ["https://tanajwokvtfkwdweootj.supabase.co/auth/v1/callback"]
+site_url = "http://localhost:8080"
+additional_redirect_urls = ["http://localhost:8080", "https://tanajwokvtfkwdweootj.supabase.co/auth/v1/callback"]
 jwt_expiry = 3600
 
 [auth.email]
