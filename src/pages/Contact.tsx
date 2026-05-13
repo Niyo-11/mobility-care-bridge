@@ -1,10 +1,12 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, MessageSquare, Phone, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { CONTACT_EMAIL } from '@/constants/contact';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +55,7 @@ const Contact = () => {
             Contact Us
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed">
-            Have questions about donating or need help? We're here to assist you every step of the way.
+            Questions about orders, becoming a verified seller, or partnerships? We are here to help.
           </p>
         </div>
       </section>
@@ -130,8 +132,7 @@ const Contact = () => {
               <div>
                 <h2 className="text-2xl font-bold text-slate-800 mb-6">Get in Touch</h2>
                 <p className="text-lg text-slate-600 mb-8">
-                  We're committed to responding to all inquiries within 24 hours. Choose the method 
-                  that works best for you.
+                  We aim to respond to all inquiries within 24 hours. Choose the method that works best for you.
                 </p>
               </div>
 
@@ -142,12 +143,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-800 mb-1">Email Us</h3>
-                    <p className="text-slate-600 mb-2">For general inquiries and donation questions</p>
+                    <p className="text-slate-600 mb-2">General inquiries, orders, and seller or partnership questions</p>
                     <a 
-                      href="mailto:hello@carebridge.org" 
+                      href={`mailto:${CONTACT_EMAIL}`}
                       className="text-blue-600 hover:text-blue-700 font-medium"
                     >
-                      hello@carebridge.org
+                      {CONTACT_EMAIL}
                     </a>
                   </div>
                 </div>
@@ -178,10 +179,10 @@ const Contact = () => {
                     <h3 className="font-semibold text-slate-800 mb-1">Phone Support</h3>
                     <p className="text-slate-600 mb-2">Available Monday-Friday, 9 AM - 5 PM</p>
                     <a 
-                      href="tel:+1234567890" 
+                      href="tel:+2349037293575" 
                       className="text-rose-600 hover:text-rose-700 font-medium"
                     >
-                      +1 (234) 567-8900
+                      +234-903-729-3575
                     </a>
                   </div>
                 </div>
@@ -192,10 +193,14 @@ const Contact = () => {
                 <ul className="space-y-2 text-slate-600">
                   <li>• Email inquiries: Within 24 hours</li>
                   <li>• WhatsApp messages: Within 4 hours</li>
-                  <li>• Phone calls: Immediate during business hours</li>
-                  <li>• Donation coordination: Same day response</li>
+                  <li>• Phone calls: During business hours</li>
+                  <li>• Seller or partner applications: Within 48 hours</li>
                 </ul>
               </div>
+
+              <Button asChild variant="outline" className="w-full border-emerald-600 text-emerald-700 hover:bg-emerald-50">
+                <Link to="/marketplace">Browse marketplace</Link>
+              </Button>
             </div>
           </div>
         </div>

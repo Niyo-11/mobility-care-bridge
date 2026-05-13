@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, HelpCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { CONTACT_EMAIL } from '@/constants/contact';
 
 const FAQ = () => {
   const { t } = useLanguage();
@@ -16,52 +18,44 @@ const FAQ = () => {
 
   const faqData = [
     {
-      question: "Can I donate used or slightly damaged mobility aids?",
-      answer: "Absolutely! We accept both gently used and items that need minor repairs. Our network includes skilled repair shops that can restore mobility aids to excellent working condition. Common repairs we handle include wheel replacements, brake adjustments, padding replacement, and mechanical tune-ups."
+      question: "What is CareBridge?",
+      answer: "CareBridge is a technology-enabled marketplace focused on safe, affordable mobility aids. We connect verified sellers and suppliers with buyers and healthcare-aligned partners—not a charity donation program."
     },
     {
-      question: "Who receives the donated mobility aids?",
-      answer: "Our partner NGOs and healthcare providers identify individuals and families who cannot afford mobility aids. Recipients are verified through our trusted network of clinics and community organizations to ensure aids reach those who need them most."
+      question: "How do I buy mobility aids?",
+      answer: "Create an account, browse the marketplace by category, add items to your cart, and complete checkout. Availability and pricing are shown on each product listing from verified merchants."
     },
     {
-      question: "How are donated items verified and assessed?",
-      answer: "Every donated item goes through a thorough assessment process by our healthcare partners. They check for safety, functionality, and determine what repairs (if any) are needed. Only items that meet our safety standards are distributed to recipients."
+      question: "How are sellers verified?",
+      answer: "Merchants go through an application and review process. We prioritize partners who meet safety and quality expectations and who can support reliable fulfillment and customer communication."
     },
     {
-      question: "Is there a cost for people receiving mobility aids?",
-      answer: "No, there is no cost to recipients. Our mission is to remove financial barriers to mobility aids. The entire process from donation to delivery is provided at no charge to those in need."
+      question: "What product categories are available?",
+      answer: "Typical categories include wheelchairs, walking aids, prosthetics-related listings where applicable, orthotics, hearing aids, and daily living aids—subject to what verified merchants have listed."
     },
     {
-      question: "What types of mobility aids do you accept?",
-      answer: "We accept wheelchairs (manual and electric), walking aids (canes, walkers, crutches), foot supports and braces, mobility scooters, transfer boards and equipment, and bath and shower safety equipment."
+      question: "How does shipping or delivery work?",
+      answer: "Delivery options depend on the merchant and your location. Shipping fees and timelines are shown at checkout when applicable. For questions about a specific order, contact us with your order details."
     },
     {
-      question: "How long does the donation process take?",
-      answer: "The timeline varies depending on the condition of the item and repair needs. Typically, items that don't need repairs can be distributed within 2-3 weeks. Items requiring repairs may take 4-6 weeks depending on the complexity of the work needed."
+      question: "What is your return or refund policy?",
+      answer: "Policies can vary by merchant and product type. Review the listing and checkout terms, and contact support if you need help with a specific order."
     },
     {
-      question: "Can I specify who receives my donated item?",
-      answer: "While we can't guarantee specific recipients due to privacy and fairness considerations, we ensure every item goes to someone who truly needs it through our verified partner network. We can provide general updates about the impact of your donation."
+      question: "How can my organization partner with CareBridge?",
+      answer: "Clinics, logistics providers, and suppliers can start with the Become a Partner / merchant application flows. We will follow up on fit, coverage, and onboarding steps."
     },
     {
-      question: "Do you provide pickup for donated items?",
-      answer: "Pickup arrangements vary by location and item size. When you fill out our donation form, we'll work with you to determine the best way to collect your donation, whether through pickup or drop-off at a partner location."
+      question: "Is CareBridge a medical provider?",
+      answer: "No. CareBridge is a marketplace and coordination platform. For medical advice or fitting, consult a licensed healthcare professional."
     },
     {
-      question: "How do I know my donation made a difference?",
-      answer: "We believe in transparency and impact reporting. After your donated item is distributed, we'll send you updates about how it's being used and the difference it's making in someone's life. We respect privacy while still sharing the positive impact of your generosity."
+      question: "How do I contact support?",
+      answer: `Use the Contact page or email ${CONTACT_EMAIL}. We aim to respond to email within 24 hours for general and order-related inquiries.`
     },
     {
-      question: "Can I donate money instead of physical items?",
-      answer: "Yes! Monetary donations help us cover repair costs, transportation, storage, and administrative expenses. Financial support is just as valuable as physical donations and helps us maintain our operations to serve more people in need."
-    },
-    {
-      question: "What condition should items be in when I donate?",
-      answer: "We accept items in various conditions, from gently used to those needing minor repairs. Items should be structurally sound and safe. Our partners can handle cleaning, minor repairs, and refurbishment, but items should not be severely damaged beyond repair."
-    },
-    {
-      question: "How do you ensure donated items reach the right people?",
-      answer: "We work exclusively with verified partner organizations including NGOs, healthcare providers, and community groups. These partners have established systems for identifying, verifying, and supporting individuals who genuinely need mobility aids."
+      question: "Do you still accept charitable donations of equipment?",
+      answer: "The product experience is oriented around verified commerce on the marketplace. If you have a large institutional or partnership inquiry, contact us and we can route it to the right team."
     }
   ];
 
@@ -135,12 +129,18 @@ const FAQ = () => {
             Our team is here to help. Reach out to us directly for personalized assistance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors">
-              Contact Support
-            </button>
-            <button className="border border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 rounded-lg font-semibold transition-colors">
-              Schedule a Call
-            </button>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+            >
+              Contact support
+            </Link>
+            <Link
+              to="/marketplace"
+              className="inline-flex items-center justify-center border border-slate-300 text-slate-700 hover:bg-slate-50 px-8 py-4 rounded-lg font-semibold transition-colors"
+            >
+              Browse marketplace
+            </Link>
           </div>
         </div>
       </section>

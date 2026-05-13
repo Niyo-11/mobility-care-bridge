@@ -21,7 +21,6 @@ const Navbar = () => {
     { name: t('nav.marketplace'), href: '/marketplace' },
     { name: t('nav.impact'), href: '/impact' },
     { name: t('nav.partners'), href: '/partners' },
-    { name: t('nav.donate'), href: '/donate' },
     { name: t('nav.faq'), href: '/faq' },
     { name: t('nav.contact'), href: '/contact' },
   ];

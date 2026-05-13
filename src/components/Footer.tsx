@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Heart, Mail, Phone, MapPin, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { CONTACT_EMAIL } from '@/constants/contact';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -95,10 +96,10 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-emerald-400" />
                 <a 
-                  href={`mailto:${t('footer.contactEmail')}`}
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  {t('footer.contactEmail')}
+                  {CONTACT_EMAIL}
                 </a>
               </div>
               <div className="flex items-center space-x-2">
