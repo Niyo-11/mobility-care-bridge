@@ -57,9 +57,6 @@ const Footer = () => {
               <Link to="/marketplace" className="block text-slate-300 hover:text-white transition-colors">
                 {t('nav.marketplace')}
               </Link>
-              <Link to="/donate" className="block text-slate-300 hover:text-white transition-colors">
-                {t('nav.donate')}
-              </Link>
               <Link to="/partners" className="block text-slate-300 hover:text-white transition-colors">
                 {t('nav.partners')}
               </Link>
@@ -98,10 +95,10 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-emerald-400" />
                 <a 
-                  href="mailto:info@carebridge.org" 
+                  href={`mailto:${t('footer.contactEmail')}`}
                   className="text-slate-300 hover:text-white transition-colors text-sm"
                 >
-                  info@carebridge.org
+                  {t('footer.contactEmail')}
                 </a>
               </div>
               <div className="flex items-center space-x-2">
@@ -127,7 +124,7 @@ const Footer = () => {
         <div className="border-t border-slate-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-slate-400 text-sm">
-              © 2024 CareBridge. {t('footer.allRightsReserved')}
+              {t('footer.copyrightPrefix')} {t('footer.allRightsReserved')}
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-slate-400 hover:text-white transition-colors">

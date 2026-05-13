@@ -27,12 +27,6 @@ const Home = () => {
               </p>
               
               <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4">
-                  <Link to="/donate">
-                    {t('home.hero.donateNow')} <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                
                 <Button asChild variant="outline" size="lg" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4">
                   <Link to="/about">
                     {t('home.hero.learnMore')}
@@ -74,7 +68,7 @@ const Home = () => {
               <div className="bg-blue-100 p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center">
                 <Users className="h-8 w-8 text-blue-600" />
               </div>
-              <h3 className="text-3xl font-bold text-slate-800">125+</h3>
+              <h3 className="text-3xl font-bold text-slate-800">{t('home.stats.peopleCount')}</h3>
               <p className="text-slate-600">{t('home.stats.peopleHelped')}</p>
             </div>
             
@@ -82,7 +76,7 @@ const Home = () => {
               <div className="bg-emerald-100 p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center">
                 <CheckCircle className="h-8 w-8 text-emerald-600" />
               </div>
-              <h3 className="text-3xl font-bold text-slate-800">200+</h3>
+              <h3 className="text-3xl font-bold text-slate-800">{t('home.stats.aidsCount')}</h3>
               <p className="text-slate-600">{t('home.stats.aidsDonated')}</p>
             </div>
             
@@ -90,7 +84,7 @@ const Home = () => {
               <div className="bg-rose-100 p-4 rounded-full w-16 h-16 mx-auto flex items-center justify-center">
                 <Heart className="h-8 w-8 text-rose-600" />
               </div>
-              <h3 className="text-3xl font-bold text-slate-800">50+</h3>
+              <h3 className="text-3xl font-bold text-slate-800">{t('home.stats.partnersCount')}</h3>
               <p className="text-slate-600">{t('home.stats.activePartners')}</p>
             </div>
           </div>
